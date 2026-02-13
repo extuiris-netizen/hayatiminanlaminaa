@@ -1,1 +1,193 @@
-# hayatiminanlaminaa
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BiricikSevgilime</title>
+
+<style>
+body {
+margin:0;
+font-family: Arial, sans-serif;
+text-align:center;
+background: linear-gradient(135deg, #ff9aa2, #fecfef);
+color:white;
+overflow:hidden;
+}
+h1 {
+font-size: 48px;
+}
+
+h2 {
+font-size: 36px;
+}
+
+p {
+font-size: 22px;
+max-width: 700px;
+margin: 20px auto;
+line-height: 1.6;
+}
+
+.page {
+display:none;
+padding:40px;
+min-height:100vh;
+}
+
+.active {
+display:block;
+}
+
+button {
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff4d6d;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+button:hover {
+transform:scale(1.1);
+}
+
+.flower {
+font-size:80px;
+animation:bloom 2s ease-in-out forwards;
+opacity:0;
+}
+
+@keyframes bloom {
+0% {transform:scale(0); opacity:0;}
+100% {transform:scale(1); opacity:1;}
+}
+
+.rain {
+position:fixed;
+top:-50px;
+font-size:30px;
+animation:fall linear infinite;
+}
+
+@keyframes fall {
+to {
+transform:translateY(110vh);
+}
+}
+
+#noBtn {
+position:relative;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SAYFA 1 -->
+<div class="page active" id="page1">
+<h1>Canim cicegim Tunam 𐙚⋆°｡⋆♡🧸ིྀ ♥︎</h1>
+<p>belki sevgililer günü için kücük ama bizim için büyüüüükkk bisi hazırlamak istedimm...</p>
+<button onclick="nextPage(2)">Baslayalım istersen askimmm</button>
+</div>
+
+<!-- SAYFA 2 -->
+<div class="page" id="page2">
+<h2>Soru 1</h2>
+<p>Beni cooooooookkk seviyorrrr musunnnnn?</p>
+<button onclick="nextPage(3)">Evettt askkkiiiimmmm 💕</button>
+<button id="noBtn" onmouseover="moveButton()">Hayır öl.</button>
+</div>
+
+<!-- SAYFA 3 -->
+<div class="page" id="page3">
+<h2>Soru 2</h2>
+<p>Seni hhherrrrseyyydennn cok sevdigimi biliyor musunnn 🌸</p>
+<button onclick="nextPage(4)">Kesinlikle evett 🌷</button>
+<button onclick="nextPage(4)">Mükemmelce evetttt</button>
+</div>
+
+<!-- SAYFA 4 -->
+<div class="page" id="page4">
+<h2>Soru 3</h2>
+<p>Tilkileri cook ama cok seviyorsun ama beni daha çok seviyor musunnn 🦊</p>
+<button onclick="nextPage(5)">tabikide sen askimmm ‪‪❤︎‬</button>
+<button onclick="wrongAnswer()">Tilkiler aslında daha iyiler sen agla 😭</button>
+</div>
+
+<!-- SAYFA 5 ÇİÇEK -->
+<div class="page" id="page5">
+<div class="flower">🌸</div>
+<p>
+14 subat bizim icin sadece bir gun degil cunku bizim icin her gun 14 subat
+seni herseyden cok seviyorum ve iyi ki hayatımda oldugunu dusunuyorumm
+o gun iyiki sana yazmısım iyiki konusuz ve tanısmısız
+aynı zamanda iyi ki bana bu sansı verdin seni herseyden cok seviyorum
+umarım sevmissindir bebegim
+</p>
+<button onclick="nextPage(6)">Devammm Edelimmmm</button>
+</div>
+
+<!-- SAYFA 6 FİNAL -->
+<div class="page" id="page6">
+<h2>SENİ COOOOOOOOOKKKKKKKK SEVİYORUMMMMMMM</h2>
+<p>
+Evet sen tilkileri cok ama cok seviyorsun
+Ama ben seni herseyden daha cok seviyorum
+Evet lolü çok seviyorsun
+Ama ben seni ekrandan ibraret olan bir oyundan daha cok seviyorum
+Matematigi cok seviyorsun
+Ama ben seni biyolojiyi sevdigim kadar seviyorum
+Bunu yapmak benim için bir ilkti ve eminim ki güzel olmadı ama elimden geleni yaptım
+Umarım beğenirsin sevgilim 14 Şubatımız kutlu olsun hayatımın anlamı
+Nice mutlu 14 Şubatlara aşkım..
+</p>
+
+<button onclick="restart()">Başa Dön askitooommm </button>
+
+
+</div>
+
+<script>
+
+function nextPage(pageNumber){
+document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+document.getElementById("page"+pageNumber).classList.add("active");
+
+if(pageNumber === 6){
+flowerRain();
+}
+}
+
+function wrongAnswer(){
+alert("olsun askitom bida dene... 💕");
+}
+
+function moveButton(){
+let btn = document.getElementById("noBtn");
+btn.style.position="absolute";
+btn.style.top=Math.random()*300+"px";
+btn.style.left=Math.random()*300+"px";
+}
+
+function flowerRain(){
+for(let i=0;i<20;i++){
+let flower=document.createElement("div");
+flower.className="rain";
+flower.innerHTML="🌺";
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(flower);
+}
+}
+
+function restart(){
+location.reload();
+}
+
+</script>
+
+</body>
+</html>
